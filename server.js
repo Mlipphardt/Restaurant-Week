@@ -19,16 +19,16 @@ let waitList = [];
 
 //Route that sends user to the 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "pages/home.html"));
 });
   
 app.get("/reservation", function(req, res) {
-   res.sendFile(path.join(__dirname, "reservation.html"));
+   res.sendFile(path.join(__dirname, "pages/reservation.html"));
 });
   
   // Displays all characters
 app.get("/tables", function(req, res) {
-   res.sendFile(path.join(__dirname, "tables.html"));
+   res.sendFile(path.join(__dirname, "pages/tables.html"));
 });
   
 app.get("/api/tables", function(req, res) {
