@@ -48,7 +48,7 @@ app.post("/api/tables", function (req, res) {
 
     var diner = req.body;
         console.log(diner);
-    if (currentTables === 5){
+    if (currentTables.length === 5){
         waitList.push(diner);
     } else {
         currentTables.push(diner);
