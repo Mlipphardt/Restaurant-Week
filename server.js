@@ -19,16 +19,16 @@ let waitList = [];
 
 //Route that sends user to the 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
-  });
+    res.sendFile(path.join(__dirname, "pages/home.html"));
+});
   
-app.get("/reservations", function(req, res) {
-   res.sendFile(path.join(__dirname, "reservations.html"));
+app.get("/reservation", function(req, res) {
+   res.sendFile(path.join(__dirname, "pages/reservation.html"));
 });
   
   // Displays all characters
-app.get("/viewtables", function(req, res) {
-   res.sendFile(path.join(__dirname, "viewtables.html"));
+app.get("/tables", function(req, res) {
+   res.sendFile(path.join(__dirname, "pages/tables.html"));
 });
   
 app.get("/api/tables", function(req, res) {
@@ -36,17 +36,17 @@ app.get("/api/tables", function(req, res) {
 });
 
 app.get("/api/waitlist", function(req, res) {
-    return res.json(waitList);
+   return res.json(waitList);
 });
 
 app.post("/api/tables", function (req, res) {
 
     var diner = req.body;
         console.log(diner);
-    if (seated = 5){
+    if (currentTables.length === 5){
         waitList.push(diner);
     } else {
-        seated.push(diner);
+        currentTables.push(diner);
     }
 
     res.json(diner);
