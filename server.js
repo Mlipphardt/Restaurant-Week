@@ -13,14 +13,19 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-let currentTables = [];
+let currentTables = [{
+    name: "Placeholder guy",
+    phone: "idk whatever man",
+    email: "What's it to ya@ no.com",
+    id: "eh"
+}];
 
 let waitList = [];
 
 //Route that sends user to the 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
-  });
+});
   
 app.get("/reservations", function(req, res) {
    res.sendFile(path.join(__dirname, "reservations.html"));
@@ -36,17 +41,17 @@ app.get("/api/tables", function(req, res) {
 });
 
 app.get("/api/waitlist", function(req, res) {
-    return res.json(waitList);
+   return res.json(waitList);
 });
 
 app.post("/api/tables", function (req, res) {
 
     var diner = req.body;
         console.log(diner);
-    if (seated = 5){
+    if (currentTables === 5){
         waitList.push(diner);
     } else {
-        seated.push(diner);
+        currentTables.push(diner);
     }
 
     res.json(diner);
