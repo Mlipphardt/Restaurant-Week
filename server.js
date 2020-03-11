@@ -34,7 +34,7 @@ app.get("/reservation", function(req, res) {
   
   // Displays all characters
 app.get("/tables", function(req, res) {
-   res.sendFile(path.join(__dirname, "pages/tables.html"));
+   res.sendFile(path.join(__dirname, "pages/table.html"));
 });
   
 app.get("/api/tables", function(req, res) {
