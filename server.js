@@ -14,12 +14,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 let currentTables = [];
-
 let waitList = [];
+
+//Variable for counting pageviews for decorative display
+let viewCounter = 0;
 
 //Route that sends user to the 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "pages/home.html"));
+
+    //adds to page views whenever home page is opened, logs to console.
+    viewCounter++
+    console.log(viewCounter);
 });
   
 app.get("/reservation", function(req, res) {
