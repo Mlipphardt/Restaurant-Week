@@ -74,7 +74,18 @@
             id: $("#reserve_uniqueID").val().trim()
 
         };
-        // console.log(reservation);
+        console.log(reservation);
+
+
+        $.post("/api/tables", reservation)
+            .then(function(data) {
+                alert("Yay! You are officially booked!");
+        });
+
+        $("#reserve_name").val("");
+        $("#reserve_phone").val("");
+        $("#reserve_email").val("");
+        $("#reserve_uniqueID").val("");
 
     })
 </script>
